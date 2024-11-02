@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,94 +6,130 @@
     <title>Balaji Anand Ganesh - Developer Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
+            background-color: #f0f8ff; /* Light background for a cheerful look */
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
-        h1, h2 {
-            color: #2c3e50;
+        header {
+            text-align: center;
+            background-color: #4CAF50; /* Green header */
+            color: white;
+            padding: 20px 0;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #2c3e50; /* Darker blue for section headers */
+            border-bottom: 2px solid #4CAF50; /* Underline effect */
+            padding-bottom: 5px;
         }
         .project {
             margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 2px dashed #4CAF50; /* Dashed border for projects */
             padding-bottom: 20px;
+            transition: transform 0.2s; /* Animation on hover */
+        }
+        .project:hover {
+            transform: scale(1.02); /* Slightly enlarge on hover */
+        }
+        ul {
+            list-style-type: square; /* Square bullets for lists */
+            padding-left: 20px;
+        }
+        a {
+            color: #ff6347; /* Tomato color for links */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Balaji Anand Ganesh</h1>
+        <h1>🌟 Balaji Anand Ganesh 🌟</h1>
         <p>BEng (Hons) Electronics and Electrical Engineering Student | Software Engineer | Machine Learning Enthusiast</p>
-        <p>📧 balajianandganesh123@gmail.com | 📱 +44 7443322251 | 🔗 <a href="https://www.linkedin.com/in/balaji-anand-ganesh/">LinkedIn</a> | 🐙 <a href="https://github.com/BalajiA">GitHub</a></p>
+        <p>📧 <a href="mailto:balajianandganesh123@gmail.com">balajianandganesh123@gmail.com</a> | 📱 +44 7443322251</p>
+        <p>🔗 <a href="https://linkedin.com/in/BalajiA">LinkedIn</a> | 🐙 <a href="https://github.com/BalajiA">GitHub</a></p>
     </header>
 
     <section id="education">
-        <h2>Education</h2>
+        <h2>🎓 Education</h2>
         <p><strong>The University of Edinburgh</strong> - BEng (Hons) Electronics and Electrical Engineering (Predicted First)</p>
         <p>August 2022 – May 2025 | Edinburgh, UK</p>
-        <p>Key courses: Computer Architecture and Design, Software and Embedded Systems, Computer Networks, Machine Learning, Sensor Networks and Data Analysis</p>
+        <p>Key courses include Computer Architecture, Software Systems, Machine Learning, and Data Analysis.</p>
     </section>
 
     <section id="experience">
-        <h2>Experience</h2>
+        <h2>💼 Experience</h2>
         <div class="project">
             <h3>Engineering Project Intern - Addepar</h3>
             <p>June 2024 – September 2024 | Edinburgh, UK</p>
             <ul>
-                <li>Executed data migration from Snowflake to Addepar Data Lakehouse (ADL)</li>
-                <li>Designed and implemented dashboards for R&D team productivity analysis</li>
-                <li>Developed custom connectors using Airbyte, reducing project costs by $100,000</li>
+                <li>Executed data migration from Snowflake to Addepar Data Lakehouse.</li>
+                <li>Designed dashboards for R&D productivity analysis.</li>
+                <li>Developed custom connectors using Airbyte, saving $100,000.</li>
+                <li>Documented migration processes for future reference.</li>
             </ul>
         </div>
         <div class="project">
             <h3>Software Engineer - Robotical</h3>
             <p>November 2023 - March 2024 | Edinburgh, UK</p>
             <ul>
-                <li>Developed a DIY Kinetic Art simulation robot</li>
-                <li>Enhanced SandBot firmware using ESP IDF and REST API</li>
-                <li>Designed motor controller on Arduino using direct memory access and PWM</li>
+                <li>Developed a DIY Kinetic Art simulation robot.</li>
+                <li>Enhanced firmware using ESP IDF and REST API.</li>
+                <li>Designed motor controllers on Arduino with PWM integration.</li>
             </ul>
         </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
+        <h2>🚀 Projects</h2>
         <div class="project">
             <h3>Scientific Machine Learning for Electromagnetic Simulation</h3>
             <p><strong>Technologies:</strong> Python, Nvidia Modulus</p>
             <ul>
-                <li>Developed a deep learning model to simulate 2D electromagnetic fields (TM and TE modes)</li>
-                <li>Improved solution accuracy by 15% in large domain simulations compared to classical FDTD methods</li>
-                <li>Achieved 20% faster convergence with Modulus over FDTD for complex material property variations</li>
+                <li>Developed a deep learning model to simulate electromagnetic fields.</li>
+                <li>Improved solution accuracy by 15% compared to classical methods.</li>
+                <li>Achieved faster convergence for complex material properties.</li>
             </ul>
         </div>
         <div class="project">
-            <h3>AutoAlign - A Self-Operating Atlassian App for Goal Alignment and Workflow Optimization</h3>
+            <h3>AutoAlign - A Self-Operating Atlassian App</h3>
             <p><strong>Technologies:</strong> Atlassian SDK, Java, REST API, Machine Learning</p>
             <ul>
-                <li>Developed a self-operating Atlassian app to optimize workflow and align team goals</li>
-                <li>Implemented machine learning algorithms to analyze team performance and suggest improvements</li>
-                <li>Integrated with Jira and Confluence for seamless data collection and analysis</li>
-                <li>Reduced project misalignment by 30% and increased team productivity by 25%</li>
+                <li>Created an app for optimizing workflows and aligning team goals.</li>
+                <li>Used ML algorithms to analyze performance and suggest improvements.</li>
+                <li>Integrated with Jira and Confluence for seamless data collection.</li>
+                <li>Reduced project misalignment by 30%!</li>
             </ul>
         </div>
         <div class="project">
-            <h3>EnthyNotes: Hackathon Project using NLP</h3>
-            <p><strong>Technologies:</strong> Python, AutoGPT, LangChain, OpenAI GPT-3.5 API, Streamlit</p>
+            <h3>EnthyNotes - Hackathon Project using NLP</h3>
+            <p><strong>Technologies:</strong> Python, AutoGPT, LangChain</p>
             <ul>
-                <li>Developed an app that transforms educational videos into interactive learning experiences</li>
-                <li>Designed with a scalable architecture to accommodate growing user base and data sources</li>
+                <li>An innovative app transforming educational videos into interactive experiences.</li>
+                <li>Built with scalable architecture to accommodate growth.</li>
             </ul>
         </div>
     </section>
 
     <section id="skills">
-        <h2>Technical Skills</h2>
+        <h2>🛠️ Technical Skills</h2>
         <p><strong>Languages:</strong> C, Python, C++, Java, SQL, JavaScript, MATLAB, Verilog</p>
-        <p><strong>Developer Tools:</strong> Git, AWS Certified Cloud Developer, Databricks, Nvidia Modulus, Terraform, TensorFlow, Docker, Kubernetes, Apache, REST API, Arduino, Altium, Ghidra, Xilinx-Vitis, Jira, Confluence</p>
+        <p><strong>Developer Tools:</strong> Git, AWS Certified Cloud Developer, Docker, TensorFlow, Jira & Confluence</p>
     </section>
+
+    <!-- Optional footer -->
+    <footer style="text-align:center; margin-top:40px;">
+      © 2024 Balaji Anand Ganesh. All rights reserved.
+    </footer>
+
 </body>
 </html>
+
