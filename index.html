@@ -28,7 +28,7 @@
             box-shadow: 0 0 10px #00ff00;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
             color: #00ff00;
         }
 
@@ -95,13 +95,13 @@
     <div id="canvas">
         <header>
             <pre>
- ____        _       _ _    _                     _ 
-|  _ \      | |     (_|_)  / \   _ __   __ _ _ __| |
-| |_) | __ _| | __ _ _    / _ \ | '_ \ / _` | '__| |
-|  _ < / _` | |/ _` | |  / ___ \| | | | (_| | |  |_|
-|_| \_\__,_|_|\__,_| | /_/   \_\_| |_|\__,_|_|  (_)
-                   _/ |                            
-                  |__/                             
+        .--.             
+       |o_o |
+       |:_/ |
+      //   \ \
+     (|     | )
+    /'\_   _/`\
+    \___)=(___/                          
             </pre>
             <h1>Balaji Anand Ganesh</h1>
             <p>Electronics and Electrical Engineering Student | Software Engineer | Machine Learning Enthusiast</p>
@@ -127,7 +127,7 @@
                 <h3>The University of Edinburgh</h3>
                 <p>BEng (Hons) Electronics and Electrical Engineering (Predicted First)</p>
                 <p>August 2022 – May 2025 | Edinburgh, UK</p>
-                <p>Key courses: Computer Architecture and Design, Software and Embedded Systems, Machine Learning, Sensor Networks and Data Analysis</p>
+                <p>Key courses: Computer Architecture and Design, Software and Embedded Systems, Computer Networks, Secure Programming, Machine Learning, Sensor Networks and Data Analysis, Engineering Mathematics, Probability and Statistics, Signals and Communication Systems, Analogue Circuits</p>
             </div>
         </section>
 
@@ -152,6 +152,24 @@
                         <li>Designed motor controller on Arduino using direct memory access and PWM</li>
                     </ul>
                 </div>
+                <div class="grid-item">
+                    <h3>Software Developer - Turing Society</h3>
+                    <p>September 2023 - Present | Edinburgh, UK</p>
+                    <ul>
+                        <li>Developed a full-stack web application for event management</li>
+                        <li>Implemented user authentication and authorization using JWT</li>
+                        <li>Created RESTful APIs for seamless communication between frontend and backend</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>Research Intern - University of Edinburgh</h3>
+                    <p>June 2023 - August 2023 | Edinburgh, UK</p>
+                    <ul>
+                        <li>Conducted research on advanced machine learning algorithms for image processing</li>
+                        <li>Developed and implemented novel deep learning models for object detection</li>
+                        <li>Collaborated with a team of researchers to publish findings in a conference paper</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -165,6 +183,14 @@
                 <div class="grid-item">
                     <h3>AutoAlign - A Self-Operating Atlassian App</h3>
                     <p>Created an app for workflow optimization and team goal alignment, reducing project misalignment by 30% and increasing team productivity by 25%.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>EnthyNotes: Hackathon Project using NLP</h3>
+                    <p>Developed an app that transforms educational videos into interactive learning experiences using AutoGPT, LangChain, and OpenAI GPT-3.5 API.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Smart Home Automation System</h3>
+                    <p>Designed and implemented a IoT-based smart home system using Raspberry Pi and Arduino, integrating various sensors and actuators.</p>
                 </div>
             </div>
         </section>
@@ -197,10 +223,13 @@
         const userInput = document.getElementById('user-input');
 
         const commands = {
-            help: "Available commands: help, about, skills, joke, clear",
+            help: "Available commands: help, about, skills, projects, experience, education, contact",
             about: "I'm Balaji, an Electronics and Electrical Engineering student passionate about innovation and technology!",
             skills: "My skills include: C, Python, Java, Machine Learning, and more. Check out the Skills section for a full list!",
-            joke: "Why do programmers prefer dark mode? Because light attracts bugs!",
+            projects: "Some of my projects: Scientific Machine Learning for Electromagnetic Simulation, AutoAlign, EnthyNotes, and Smart Home Automation System.",
+            experience: "I've interned at Addepar, worked as a Software Engineer at Robotical, and contributed to research at the University of Edinburgh.",
+            education: "I'm pursuing a BEng (Hons) in Electronics and Electrical Engineering at the University of Edinburgh.",
+            contact: "You can reach me at balajianandganesh123@gmail.com or connect with me on LinkedIn!",
             clear: function() {
                 terminalOutput.innerHTML = '';
             }
