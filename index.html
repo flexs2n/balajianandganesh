@@ -235,6 +235,15 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
                 <p>August 2022 – May 2025 | Edinburgh, UK</p>
                 <p>Key courses: Computer Architecture and Design, Software and Embedded Systems, Computer Networks, Secure Programming, Machine Learning, Sensor Networks and Data Analysis, Engineering Mathematics, Probability and Statistics, Signals and Communication Systems, Analogue Circuits</p>
             </div>
+            <h2>Education</h2>
+    <div class="grid-item">
+        <div class="exp-org-row">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Georgia_Tech_seal.svg/2547px-Georgia_Tech_seal.svg.png" class="org-logo" alt="Georgia Institute of Technology">
+            <h3>Georgia Institute of Technology</h3>
+        </div>
+        <p>Masters of Science in Computer Science</p>
+        <p>2025 – 2026</p>
+    </div>
         </section>
 
         <section id="experience">
@@ -242,11 +251,16 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
             <div class="grid-item">
                 <div class="exp-org-row">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Thales_Logo.svg/1920px-Thales_Logo.svg.png" class="org-logo" alt="Thales logo">
-                    <h3>Summer Intern - Thales</h3>
+                    <h3>Computer Engineer Intern - Thales</h3>
                 </div>
                 <p>June 2025 - August 2025 | Glasgow, UK</p>
                 <ul>
-                    <li>Working on Pseudorandom Pulsewidth Modulation algorithm</li>
+                    <ul>
+                    <li>Researched on Pseudorandom Pulse Width Modulation Algorithm using triangle and sawtooth analogue signals for precise power control.</li>
+                    <li>Designed the firmware to implement the algorithm in FPGA and PWM filter along with the JTAG Debugger for real-time testing.</li>
+                    <li>Contributed to a large-scale multi-package ROS2 robotics workspace supporting sensor drivers, calibration tools, RTDE communication, and motion-planning modules for Universal Robots (UR).</li>
+                    <li>Developed and extended packages for UR robot accuracy experiments, multi-step probing routines, and marker-based calibration, ensuring repeatable and deterministic behaviour across deployments.</li>
+                </ul>
                 </ul>
             </div>
             <div class="grid-item">
@@ -321,6 +335,19 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
                 <p>Designed and implemented a fully functional Snake Game on an FPGA platform utilizing Verilog hardware description language for the logic design and C programming for software interactions displayed on a monitor via VGA port.</p>
                 <p>October 2023</p>
             </div>
+            <h2>Projects</h2>
+            <div class="grid-item">
+                <div class="exp-org-row">
+                    <img src="https://seeklogo.com/images/O/openai-logo-8B9BFEDC26-seeklogo.com.png" class="project-logo" alt="OpenAI logo">
+                    <h3>CrackStore: Distributed Columnar Storage Engine with Adaptive Indexing</h3>
+                </div>
+                <p>November 2025</p>
+                <ul>
+                    <li>Engineered a distributed columnar store implementing adaptive indexing (database cracking) across multi-node clusters, enabling automatic, self-tuning physical layouts without upfront index design.</li>
+                    <li>Achieved 23.98× speedup from cold-start to steady state on 100M+ rows through adaptive refinement, validated over 8 distributed nodes.</li>
+                    <li>Delivered horizontal scalability (83 percent efficiency) via asynchronous fan-out and containerized the full system using Docker and composed multi-node deployments for reproducible experiments, cluster bring-up, and failure recovery testing.</li>
+                </ul>
+            </div>
         </section>
 
         <section id="Extras">
@@ -339,8 +366,8 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
 
         <section id="skills">
             <h2>Technical Skills</h2>
-            <p><strong>Languages:</strong> C, Python, C++, Java, SQL, JavaScript, MATLAB, Verilog</p>
-            <p><strong>Developer Tools:</strong> Git, AWS Certified Cloud Developer, Databricks, Nvidia Modulus, Terraform, TensorFlow, Docker, Kubernetes, Apache, REST API, Arduino, Altium, Ghidra, Xilinx-Vitis, Jira, Confluence</p>
+            <p><strong>Languages:</strong> C, Python, C++, Java, SQL, TypeScript, MATLAB, Verilog, VHDL, MIPS, RISC-V</p>
+            <p><strong>Developer Tools:</strong> Git, Linux, AWS, Docker, React+Vite, LLVM, TensorFlow, PyTorch, JAX, Xilinx Vivado, ROS2, Altium, Arduino, STM32, CUDA, Computer Networks</p>
         </section>
 
         <section id="fun">
@@ -370,11 +397,11 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
 
         const commands = {
             help: "Available commands: help, about, skills, projects, experience, education, contact",
-            about: "I'm Balaji, an Electronics and Electrical Engineering student passionate about innovation and technology!",
+            about: "I'm Balaji, an Electronics and Computer Science Engineering student passionate about innovation and technology!",
             skills: "My skills include: C, Python, Java, Machine Learning, and more. Check out the Skills section for a full list!",
-            projects: "Some of my projects: Scientific Machine Learning for Electromagnetic Simulation, AutoAlign, EnthyNotes, and Smart Home Automation System.",
+            projects: "Some of my projects: Scientific Machine Learning for Electromagnetic Simulation, AutoAlign, EnthyNotes",
             experience: "I've interned at Addepar, worked as a Software Engineer at Robotical, and contributed to research at the University of Edinburgh.",
-            education: "I'm pursuing a BEng (Hons) in Electronics and Electrical Engineering at the University of Edinburgh.",
+            education: "I'm pursuing Master of Science in Computer Science at Georgia Institute of Technology.",
             contact: "You can reach me at balajianandganesh123@gmail.com or connect with me on LinkedIn!",
             clear: function() {
                 terminalOutput.innerHTML = '';
