@@ -8,53 +8,173 @@
     <title>Balaji Anand Ganesh: Engineering, Programming, and Constantly building</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
+        :root {
+            --bg-gradient-start: #e8f0fe;
+            --bg-gradient-end: #f0fff0;
+            --text-color: #222;
+            --canvas-bg: #fff;
+            --canvas-shadow: rgba(0,40,60,0.10), rgba(0,180,120,0.06);
+            --primary-green: #166534;
+            --primary-blue: #1877f2;
+            --accent-green: #2b8a3e;
+            --nav-hover-bg: #e0f7ef;
+            --nav-hover-color: #0b3d20;
+            --border-color: #e2e8f0;
+            --grid-item-bg: #f8fafc;
+            --ascii-color: #2b8a3e;
+            --footer-color: #888;
+        }
+
+        body.dark-mode {
+            --bg-gradient-start: #0a0e27;
+            --bg-gradient-end: #1a1f3a;
+            --text-color: #e4e4e7;
+            --canvas-bg: #1e293b;
+            --canvas-shadow: rgba(0,0,0,0.3), rgba(0,0,0,0.2);
+            --primary-green: #4ade80;
+            --primary-blue: #60a5fa;
+            --accent-green: #86efac;
+            --nav-hover-bg: #334155;
+            --nav-hover-color: #86efac;
+            --border-color: #334155;
+            --grid-item-bg: #0f172a;
+            --ascii-color: #4ade80;
+            --footer-color: #94a3b8;
+        }
+
         body {
             font-family: 'Roboto Mono', monospace;
             line-height: 1.6;
-            color: #222;
-            background: linear-gradient(135deg, #e8f0fe 0%, #f0fff0 100%);
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
             margin: 0;
             padding: 0;
+            transition: background 0.3s ease, color 0.3s ease;
+            position: relative;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
 
         #canvas {
             max-width: 950px;
             margin: 32px auto 0 auto;
             padding: 36px 32px 24px 32px;
-            background: #fff;
+            background: var(--canvas-bg);
             border-radius: 18px;
-            box-shadow: 0 6px 32px 0 rgba(0,40,60,0.10), 0 1.5px 12px 0 rgba(0,180,120,0.06);
+            box-shadow: 0 6px 32px 0 var(--canvas-shadow);
+            position: relative;
+            z-index: 1;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
         header {
             text-align: center;
             margin-bottom: 16px;
+            position: relative;
+        }
+
+        .dark-mode-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 8px 16px;
+            background: var(--grid-item-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        .toggle-switch {
+            width: 50px;
+            height: 26px;
+            background: var(--border-color);
+            border-radius: 13px;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-slider {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: transform 0.3s ease;
+        }
+
+        body.dark-mode .toggle-slider {
+            transform: translateX(24px);
+            background: var(--primary-blue);
         }
 
         .ascii-art {
             font-size: 13px;
-            color: #2b8a3e;
+            color: var(--ascii-color);
             line-height: 1.2;
             margin-bottom: 0;
+            transition: color 0.3s ease;
         }
 
         h1 {
             font-size: 2.6rem;
-            color: #166534;
+            color: var(--primary-green);
             margin: 0.7em 0 0.3em 0;
+            transition: color 0.3s ease;
         }
+
+        .hero-text {
+            display: inline-block;
+            border-right: 2px solid var(--accent-green);
+            padding-right: 5px;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent-green); }
+        }
+
+        .hero-description {
+            opacity: 0;
+            animation: fadeIn 1s ease-in 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
         h2 {
-            color: #1877f2;
+            color: var(--primary-blue);
             font-size: 2rem;
             margin-top: 2.2em;
+            transition: color 0.3s ease;
         }
         h3 {
-            color: #2b8a3e;
+            color: var(--accent-green);
             font-size: 1.2rem;
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: color 0.3s ease;
         }
 
         nav {
@@ -64,7 +184,7 @@
             margin: 18px 0 38px 0;
         }
         nav a {
-            color: #166534;
+            color: var(--primary-green);
             font-weight: bold;
             text-decoration: none;
             padding: 6px 16px;
@@ -72,8 +192,8 @@
             transition: background 0.2s, color 0.2s;
         }
         nav a:hover {
-            background: #e0f7ef;
-            color: #0b3d20;
+            background: var(--nav-hover-bg);
+            color: var(--nav-hover-color);
         }
 
         section {
@@ -81,12 +201,13 @@
         }
 
         .grid-item {
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
             border-radius: 10px;
-            background: #f8fafc;
+            background: var(--grid-item-bg);
             box-shadow: 0 1px 2px rgba(0,0,0,0.04);
             padding: 18px 22px 12px 22px;
             margin-bottom: 22px;
+            transition: all 0.3s ease;
         }
 
         .org-logo {
@@ -97,7 +218,8 @@
             vertical-align: middle;
             border-radius: 6px;
             background: #fff;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
+            transition: border 0.3s ease;
         }
 
         .exp-org-row {
@@ -113,7 +235,8 @@
             margin-right: 10px;
             border-radius: 4px;
             background: #fff;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
+            transition: border 0.3s ease;
         }
 
         ul {
@@ -160,18 +283,28 @@
             text-align: center;
             margin-top: 40px;
             padding-top: 18px;
-            color: #888;
+            color: var(--footer-color);
             font-size: 1em;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid var(--border-color);
+            transition: color 0.3s ease, border 0.3s ease;
         }
 
         footer a {
-            color: #166534;
+            color: var(--primary-green);
             text-decoration: none;
             margin: 0 6px;
+            transition: color 0.3s ease;
         }
         footer a:hover {
             text-decoration: underline;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
 
         @media (max-width: 700px) {
@@ -184,8 +317,16 @@
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
     <div id="canvas">
         <header>
+            <div class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+                <i class="fas fa-sun"></i>
+                <div class="toggle-switch">
+                    <div class="toggle-slider"></div>
+                </div>
+                <i class="fas fa-moon"></i>
+            </div>
             <pre class="ascii-art">
                                                      __..--.
                                                  _,-'|\ `. `-.
@@ -206,8 +347,8 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
                     ()())     ()())
 
             </pre>
-            <h1>Balaji Anandganesh</h1>
-            <p>Electronics and Electrical Engineering Student | Software Engineer | Machine Learning Enthusiast</p>
+            <h1><span class="hero-text" id="hero-text"></span></h1>
+            <p class="hero-description">Electronics and Electrical Engineering Student | Software Engineer | Machine Learning Enthusiast</p>
         </header>
 
         <nav>
@@ -219,14 +360,14 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
             <a href="#fun">Fun Zone</a>
         </nav>
 
-        <section id="about">
+        <section id="about" data-aos="fade-up">
             <h2>About Me</h2>
             <p>Hello! I'm Balaji, a computer science student at Georgia Institute of Technology, recently completing my bachelor's in Electronics and Electrical Engineering student at the University of Edinburgh. I love exploring the intersection of hardware and software, diving deep into machine learning, and creating innovative solutions.</p>
         </section>
 
         <section id="education">
-            <h2>Education</h2>
-            <div class="grid-item">
+            <h2 data-aos="fade-up">Education</h2>
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="exp-org-row">
                     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/University_of_Edinburgh_ceremonial_roundel.svg/1024px-University_of_Edinburgh_ceremonial_roundel.svg.png" class="org-logo" alt="University of Edinburgh logo">
                     <h3>The University of Edinburgh</h3>
@@ -236,7 +377,7 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
                 <p>Key courses: Computer Architecture and Design, Software and Embedded Systems, Computer Networks, Secure Programming, Machine Learning, Sensor Networks and Data Analysis, Engineering Mathematics, Probability and Statistics, Signals and Communication Systems, Analogue Circuits</p>
             </div>
   
-    <div class="grid-item">
+    <div class="grid-item" data-aos="fade-up" data-aos-delay="200">
         <div class="exp-org-row">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Georgia_Tech_Yellow_Jackets_logo.svg" class="org-logo" alt="Georgia Institute of Technology">
             <h3>Georgia Institute of Technology</h3>
@@ -247,8 +388,8 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
         </section>
 
         <section id="experience">
-            <h2>Experience</h2>
-            <div class="grid-item">
+            <h2 data-aos="fade-up">Experience</h2>
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="exp-org-row">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Thales_Logo.svg/1920px-Thales_Logo.svg.png" class="org-logo" alt="Thales logo">
                     <h3>Computer Engineer Intern - Thales</h3>
@@ -263,7 +404,7 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
                 </ul>
                 </ul>
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="200">
                 <div class="exp-org-row">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Addepar_Inc_Corporate_Logo.svg/1920px-Addepar_Inc_Corporate_Logo.svg.png" class="org-logo" alt="Addepar logo">
                     <h3>Engineering Project Intern - Addepar</h3>
@@ -275,7 +416,7 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
                     <li>Developed custom connectors using Airbyte, reducing project costs</li>
                 </ul>
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="exp-org-row">
                     <img src="https://robotical.io/wp-content/uploads/2022/10/robotical-logo.svg" class="org-logo" alt="Robotical logo">
                     <h3>Software Engineer - Robotical</h3>
@@ -287,7 +428,7 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
                     <li>Designed motor controller on Arduino using direct memory access and PWM</li>
                 </ul>
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="400">
                 <div class="exp-org-row">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Palantir_Technologies_logo.svg/1920px-Palantir_Technologies_logo.svg.png" class="org-logo" alt="Palantir logo">
                     <h3>Palantir Winter Fellowship - UK</h3>
@@ -301,8 +442,8 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
         </section>
 
         <section id="projects">
-            <h2>Projects</h2>
-            <div class="grid-item">
+            <h2 data-aos="fade-up">Projects</h2>
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="exp-org-row">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/NVIDIA_logo.svg/1920px-NVIDIA_logo.svg.png" class="project-logo" alt="NVIDIA logo">
                     <h3>Thesis: Physics-Informed Neural Operator for Accelerating Electromagnetic Scattering Simulations</h3>
@@ -313,21 +454,21 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
                     <li>Simulated wave propagation through domains with inhomogeneous material properties (varying permittivity and permeability), analyzing performance and learning behavior.</li>
                 </ul>
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="200">
                 <div class="exp-org-row">
                     <img src="https://cdn.worldvectorlogo.com/logos/atlassian.svg" class="project-logo" alt="Atlassian logo">
                     <h3>AutoAlign - A Self-Operating Atlassian App</h3>
                 </div>
                 <p>Created an app for workflow optimization and team goal alignment, reducing project misalignment by 30% and increasing team productivity by 25%.</p>
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="exp-org-row">
                     <img src="https://seeklogo.com/images/O/openai-logo-8B9BFEDC26-seeklogo.com.png" class="project-logo" alt="OpenAI logo">
                     <h3>EnthyNotes: Hackathon Project using NLP</h3>
                 </div>
                 <p>Developed an app that transforms educational videos into interactive learning experiences using AutoGPT, LangChain, and OpenAI GPT-3.5 API.</p>
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="400">
                 <div class="exp-org-row">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Xilinx_Logo.svg" class="project-logo" alt="FPGA logo">
                     <h3>Snake Game</h3>
@@ -335,8 +476,7 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
                 <p>Designed and implemented a fully functional Snake Game on an FPGA platform utilizing Verilog hardware description language for the logic design and C programming for software interactions displayed on a monitor via VGA port.</p>
                 <p>October 2023</p>
             </div>
-            <h2>Projects</h2>
-            <div class="grid-item">
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="500">
                 <div class="exp-org-row">
                     <img src="https://seeklogo.com/images/O/openai-logo-8B9BFEDC26-seeklogo.com.png" class="project-logo" alt="OpenAI logo">
                     <h3>CrackStore: Distributed Columnar Storage Engine with Adaptive Indexing</h3>
@@ -351,8 +491,8 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
         </section>
 
         <section id="Extras">
-            <h2>Extras</h2>
-            <div class="grid-item">
+            <h2 data-aos="fade-up">Extras</h2>
+            <div class="grid-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="exp-org-row">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/BAE_Systems_logo.svg/1920px-BAE_Systems_logo.svg.png" class="project-logo" alt="NVIDIA logo">
                     <h3>Brand Ambassador</h3>
@@ -365,13 +505,15 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
         </section>
 
         <section id="skills">
-            <h2>Technical Skills</h2>
-            <p><strong>Languages:</strong> C, Python, C++, Java, SQL, TypeScript, MATLAB, Verilog, VHDL, MIPS, RISC-V</p>
-            <p><strong>Developer Tools:</strong> Git, Linux, AWS, Docker, React+Vite, LLVM, TensorFlow, PyTorch, JAX, Xilinx Vivado, ROS2, Altium, Arduino, STM32, CUDA, Computer Networks</p>
+            <h2 data-aos="fade-up">Technical Skills</h2>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <p><strong>Languages:</strong> C, Python, C++, Java, SQL, TypeScript, MATLAB, Verilog, VHDL, MIPS, RISC-V</p>
+                <p><strong>Developer Tools:</strong> Git, Linux, AWS, Docker, React+Vite, LLVM, TensorFlow, PyTorch, JAX, Xilinx Vivado, ROS2, Altium, Arduino, STM32, CUDA, Computer Networks</p>
+            </div>
         </section>
 
         <section id="fun">
-            <h2>Fun Zone: Terminal Adventure</h2>
+            <h2 data-aos="fade-up">Fun Zone: Terminal Adventure</h2>
             <p>Welcome to the Balaji Terminal! Type 'help' to see available commands.</p>
             <div id="terminal">
                 <div id="terminal-output"></div>
@@ -391,7 +533,159 @@ __..--""              ,-' ,-'  ,-'   _,-'____/   ()):
         </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS with error handling
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            });
+        }
+
+        // Dark mode toggle functionality
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            if (typeof particlesJS !== 'undefined') {
+                updateParticlesColor(isDark);
+            }
+        }
+
+        // Check for saved dark mode preference or system preference
+        function initDarkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedMode === 'true' || (savedMode === null && systemPrefersDark)) {
+                document.body.classList.add('dark-mode');
+            }
+        }
+
+        // Initialize dark mode on page load
+        initDarkMode();
+
+        // Typing animation for hero text
+        const text = "Balaji Anandganesh";
+        const heroText = document.getElementById('hero-text');
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                heroText.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        // Start typing animation after a short delay
+        setTimeout(typeWriter, 500);
+
+        // Particles.js configuration
+        function updateParticlesColor(isDark) {
+            if (typeof particlesJS === 'undefined') return;
+            
+            const color = isDark ? '#4ade80' : '#2b8a3e';
+            const lineColor = isDark ? '#4ade80' : '#2b8a3e';
+            
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 60,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: color
+                    },
+                    shape: {
+                        type: 'circle',
+                        stroke: {
+                            width: 0,
+                            color: '#000000'
+                        }
+                    },
+                    opacity: {
+                        value: 0.3,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: {
+                            enable: false,
+                            speed: 40,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: lineColor,
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false,
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'grab'
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push'
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 0.5
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+        }
+
+        // Initialize particles with current theme
+        updateParticlesColor(document.body.classList.contains('dark-mode'));
+
+        // Terminal functionality
         const terminalOutput = document.getElementById('terminal-output');
         const userInput = document.getElementById('user-input');
 
